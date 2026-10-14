@@ -667,7 +667,7 @@ p { max-width: 62ch; }
   .band { min-height: 72svh; }
   .titleblock { grid-template-columns: 1fr 1fr; }
   .cap-item__link { padding-top: 1.75rem; }
-  .careers__intro { padding-inline: calc(var(--bs-gutter-x, 1.5rem) * .5 + .75rem); }
+  .careers__intro { padding-inline: .75rem; } /* same 12px gutter as the .container sections above and below */
 }
 @media (min-width: 1600px) {
   .container { max-width: 1440px; }

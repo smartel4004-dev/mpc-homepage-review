@@ -46,12 +46,15 @@ html[data-font="manrope"] .v2 { --ff-sans: "Manrope", "Helvetica Neue", Arial, s
 .v2 .brand__logo--stacked { height: 80px; }
 @media (max-width: 991.98px) { .v2 .brand__logo--stacked { height: 56px; } }
 @media (min-width: 992px) and (max-width: 1199.98px) { .v2 .brand__logo--stacked { height: 66px; } }
-.v2 .site-header { overflow-x: clip; }
 .v2 .site-header.is-scrolled { box-shadow: none; }
 .v2 .mainnav { border-bottom: 0; }
-.v2 .mainnav__list { position: relative; }
-.v2 .mainnav__list::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100vw; height: 1px; background: rgba(242,240,236,.4); pointer-events: none; }
-.v2 .site-header.is-scrolled .mainnav__list::after { background: var(--v2-blue); }
+/* Divider under the tabs: starts at the first tab (--nav-rule-left, set by mpc-v2.js) and runs to the
+   right edge. Drawn on .mainnav, not overflowing the header: clipping the header's overflow stops the
+   dropdown panels below it receiving the pointer, which made them close on hover. */
+.v2 .mainnav { position: relative; }
+.v2 .mainnav::after { content: ""; position: absolute; left: var(--nav-rule-left, 0px); right: 0; bottom: 0; height: 1px; background: rgba(242,240,236,.4); pointer-events: none; }
+.v2 .site-header.is-scrolled .mainnav::after { background: var(--v2-blue); }
+@media (max-width: 991.98px) { .v2 .mainnav::after { display: none; } }
 @media (max-width: 991.98px) {
   .v2 .mainnav { border-bottom: 1px solid rgba(242,240,236,.3); }
   .v2 .site-header.is-scrolled .mainnav { border-bottom-color: var(--v2-blue); }
@@ -81,19 +84,16 @@ html[data-font="manrope"] .v2 { --ff-sans: "Manrope", "Helvetica Neue", Arial, s
 .v2-band__content { position: relative; padding-block: var(--section-y); }
 .v2-band .text-paper-muted { color: rgba(242,240,236,.82) !important; }
 
-/* Treatment A: black & white photo, neutral shade on the copy side */
-html:not([data-tone="gradient"]) .v2-band__media img,
-html:not([data-tone="gradient"]) .v2-band__media video { filter: grayscale(1) contrast(1.06); }
-html:not([data-tone="gradient"]) .v2-band__tone { background: linear-gradient(90deg, rgba(13,15,17,.84) 0%, rgba(13,15,17,.62) 42%, rgba(13,15,17,.25) 100%); }
-html:not([data-tone="gradient"]) .v2-band__tone--light { background: rgba(13,15,17,.12); }
-/* Treatment B: colour photo, MPC blue gradient on the copy side */
-html[data-tone="gradient"] .v2-band__tone { background: linear-gradient(90deg, rgba(45,97,116,.94) 0%, rgba(45,97,116,.78) 34%, rgba(78,130,159,.28) 70%, rgba(78,130,159,0) 100%); }
-html[data-tone="gradient"] .v2-band__tone--light { background: linear-gradient(90deg, rgba(45,97,116,.35), rgba(45,97,116,0) 60%); }
+/* Photo treatment: images desaturated just short of full grayscale, under a near-black shade of
+   MPC blue (#4e829f darkened to #09161d), slightly heavier on the copy side. */
+.v2 { --v2-shade: 9,22,29; }
+.v2-band__media img, .v2-band__media video { filter: grayscale(.86) contrast(1.05); }
+.v2-band__tone { background: linear-gradient(90deg, rgba(var(--v2-shade),.9) 0%, rgba(var(--v2-shade),.8) 45%, rgba(var(--v2-shade),.68) 100%); }
+.v2-band__tone--light { background: rgba(var(--v2-shade),.55); }
 /* Hero keeps its bottom shade for the buttons and label row under either treatment */
-.v2 .hero .v2-band__tone::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,15,17,.5) 0%, rgba(13,15,17,0) 28%, rgba(13,15,17,0) 62%, rgba(13,15,17,.7) 100%); }
+.v2 .hero .v2-band__tone::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(var(--v2-shade),.45) 0%, rgba(var(--v2-shade),0) 28%, rgba(var(--v2-shade),0) 62%, rgba(var(--v2-shade),.55) 100%); }
 @media (max-width: 767.98px) {
-  html:not([data-tone="gradient"]) .v2-band__tone { background: rgba(13,15,17,.7); }
-  html[data-tone="gradient"] .v2-band__tone { background: linear-gradient(180deg, rgba(45,97,116,.82), rgba(45,97,116,.92)); }
+  .v2-band__tone { background: rgba(var(--v2-shade),.84); }
   .v2-band--tall { min-height: 0; }
 }
 

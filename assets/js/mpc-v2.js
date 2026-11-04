@@ -3,6 +3,17 @@
 (function () {
   'use strict';
   var root = document.documentElement;
+
+  // Nav divider starts at the first tab (see .v2 .mainnav::after)
+  var nav = document.querySelector('.mainnav'), list = document.querySelector('.mainnav__list');
+  function placeRule() {
+    if (!nav || !list) return;
+    nav.style.setProperty('--nav-rule-left', Math.round(list.getBoundingClientRect().left - nav.getBoundingClientRect().left) + 'px');
+  }
+  placeRule();
+  window.addEventListener('resize', placeRule);
+  window.addEventListener('load', placeRule);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeRule);
   var panel = document.getElementById('v2ReviewPanel');
   if (!panel) return;
   var toggle = document.querySelector('.v2-review__toggle');
@@ -16,13 +27,12 @@
 
   var apply = {
     font: function (v) { root.setAttribute('data-font', v); },
-    tone: function (v) { root.setAttribute('data-tone', v); },
     jobs: function (v) {
       if (!jobs) return;
       jobItems.forEach(function (li) { if (v === 'none') li.remove(); else jobs.appendChild(li); });
     }
   };
-  var defaults = { font: 'archivo', tone: 'bw', jobs: 'listed' };
+  var defaults = { font: 'archivo', jobs: 'listed' };
 
   Object.keys(apply).forEach(function (key) {
     var inputs = panel.querySelectorAll('input[name="v2' + key + '"]');

@@ -1,0 +1,156 @@
+/* ==========================================================================
+   MPC Construction — homepage v2 (body.v2). Loads after mpc.css and only on /v2/.
+   From the client call: MPC logo blue for lines and strokes, larger logo, nav divider that starts
+   beside the tabs, no intersecting frame lines, thinner typefaces (switchable for review),
+   full-width photo bands (black & white or colour + blue gradient, switchable) alternating with
+   image-left / copy-right splits, after the NS Giles reference.
+   ========================================================================== */
+
+.v2 {
+  --v2-blue: #4e829f;            /* MPC logo blue: lines, strokes, accent bars */
+  --v2-blue-deep: var(--mpc-steel); /* colour blocks that carry white text (6.4:1) */
+  --mpc-line: rgba(78,130,159,.55);
+  --mpc-ink-line: rgba(143,188,204,.32);
+  --nav-h: 124px;
+  --ff-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+}
+html[data-font="hanken"] .v2 { --ff-sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif; }
+html[data-font="manrope"] .v2 { --ff-sans: "Manrope", "Helvetica Neue", Arial, sans-serif; }
+@media (max-width: 991.98px) { .v2 { --nav-h: 88px; } }
+
+/* Thinner, normal-width type throughout; size and weight do the work */
+.v2 .hero__title, .v2 .h-section, .v2 .h-display, .v2 .h-sub, .v2 .statement, .v2 .project__title,
+.v2 .news-item__title, .v2 .job-titles a, .v2 .mainnav__list a, .v2 .btn-mpc, .v2 .navmenu a,
+.v2 .mobile-nav__list a, .v2 .hscroll__end-title {
+  font-variation-settings: "wdth" 100;
+}
+.v2 .h-section { font-weight: 300; letter-spacing: -.02em; font-size: clamp(2.6rem, 5vw, 4.5rem); line-height: 1.02; }
+.v2 .project__title { font-weight: 500; }
+.v2 .news-item__title { font-weight: 400; }
+.v2 .job-titles a { font-weight: 400; }
+
+.v2-h2 { font-family: var(--ff-sans); font-weight: 300; font-size: clamp(2.6rem, 5vw, 4.5rem); line-height: 1.02; letter-spacing: -.025em; margin: 0 0 1rem; text-wrap: balance; }
+.v2-h3 { font-family: var(--ff-sans); font-weight: 600; font-size: clamp(1.15rem, 1.5vw, 1.35rem); line-height: 1.2; margin: 0 0 .4rem; }
+.v2-lede { font-weight: 300; font-size: clamp(1.25rem, 1.9vw, 1.65rem); line-height: 1.4; letter-spacing: -.005em; max-width: 34ch; margin-bottom: 1.25rem; }
+
+/* Accent bar: runs in from the left edge of the screen, like the reference */
+.v2-accent { position: relative; display: block; width: min(420px, 70%); height: 3px; background: var(--v2-blue); margin: .25rem 0 1.75rem; }
+.v2-accent::before { content: ""; position: absolute; right: 100%; top: 0; width: 100vw; height: 100%; background: inherit; }
+.v2-accent--ink { background: var(--v2-blue); }
+
+/* Rule leading into a button */
+.v2-linkline { display: flex; align-items: center; gap: 1.25rem; margin-top: 2rem; }
+.v2-linkline__rule { flex: 1; height: 2px; background: var(--v2-blue); }
+
+/* ---- Header: larger logo, divider starts beside the tabs ---- */
+.v2 .brand__logo--stacked { height: 80px; }
+@media (max-width: 991.98px) { .v2 .brand__logo--stacked { height: 56px; } }
+@media (min-width: 992px) and (max-width: 1199.98px) { .v2 .brand__logo--stacked { height: 66px; } }
+.v2 .site-header { overflow-x: clip; }
+.v2 .site-header.is-scrolled { box-shadow: none; }
+.v2 .mainnav { border-bottom: 0; }
+.v2 .mainnav__list { position: relative; }
+.v2 .mainnav__list::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100vw; height: 1px; background: rgba(242,240,236,.4); pointer-events: none; }
+.v2 .site-header.is-scrolled .mainnav__list::after { background: var(--v2-blue); }
+@media (max-width: 991.98px) {
+  .v2 .mainnav { border-bottom: 1px solid rgba(242,240,236,.3); }
+  .v2 .site-header.is-scrolled .mainnav { border-bottom-color: var(--v2-blue); }
+}
+
+/* ---- No intersecting lines ---- */
+.v2 .framelines, .v2 .rule-chev, .v2 .hero__marks, .v2 .hero__baseline .dim { display: none !important; }
+
+/* ---- Strokes in logo blue (outline buttons on light backgrounds) ---- */
+.v2 main .btn-mpc:not(.btn-mpc--light):not(.btn-mpc--ghost-light) { --btn-bd: var(--v2-blue); --btn-hover: var(--mpc-steel); }
+.v2 .people__nav, .v2 .hscroll__end { border-color: var(--v2-blue); }
+.v2 .hscroll__progress-fill { background: var(--v2-blue); }
+
+/* ---- Hero ---- */
+.v2 .hero__content { padding-bottom: 2rem; }
+.v2-hero__title { font-weight: 300 !important; font-size: clamp(3.4rem, 9.5vw, 9rem); line-height: .95; letter-spacing: -.035em; margin-bottom: 1.25rem; }
+.v2-hero__title .line + .line > span { font-style: normal; font-weight: 300; font-variation-settings: "wdth" 100; }
+.v2 .hero__foot { margin-bottom: clamp(3rem, 7vw, 5rem); }
+
+/* ---- Full-width photo bands ---- */
+.v2-band { position: relative; overflow: hidden; background: var(--mpc-ink); color: var(--mpc-paper); display: flex; align-items: center; }
+.v2-band--tall { min-height: clamp(600px, 92vh, 940px); }
+.v2-band--break { min-height: clamp(340px, 62vh, 680px); }
+.v2-band__media { position: absolute; inset: -12% 0; will-change: transform; }
+.v2-band__media img, .v2-band__media video { width: 100%; height: 100%; object-fit: cover; }
+.v2-band__tone { position: absolute; inset: 0; pointer-events: none; }
+.v2-band__content { position: relative; padding-block: var(--section-y); }
+.v2-band .text-paper-muted { color: rgba(242,240,236,.82) !important; }
+
+/* Treatment A: black & white photo, neutral shade on the copy side */
+html:not([data-tone="gradient"]) .v2-band__media img,
+html:not([data-tone="gradient"]) .v2-band__media video { filter: grayscale(1) contrast(1.06); }
+html:not([data-tone="gradient"]) .v2-band__tone { background: linear-gradient(90deg, rgba(13,15,17,.84) 0%, rgba(13,15,17,.62) 42%, rgba(13,15,17,.25) 100%); }
+html:not([data-tone="gradient"]) .v2-band__tone--light { background: rgba(13,15,17,.12); }
+/* Treatment B: colour photo, MPC blue gradient on the copy side */
+html[data-tone="gradient"] .v2-band__tone { background: linear-gradient(90deg, rgba(45,97,116,.94) 0%, rgba(45,97,116,.78) 34%, rgba(78,130,159,.28) 70%, rgba(78,130,159,0) 100%); }
+html[data-tone="gradient"] .v2-band__tone--light { background: linear-gradient(90deg, rgba(45,97,116,.35), rgba(45,97,116,0) 60%); }
+/* Hero keeps its bottom shade for the buttons and label row under either treatment */
+.v2 .hero .v2-band__tone::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,15,17,.5) 0%, rgba(13,15,17,0) 28%, rgba(13,15,17,0) 62%, rgba(13,15,17,.7) 100%); }
+@media (max-width: 767.98px) {
+  html:not([data-tone="gradient"]) .v2-band__tone { background: rgba(13,15,17,.7); }
+  html[data-tone="gradient"] .v2-band__tone { background: linear-gradient(180deg, rgba(45,97,116,.82), rgba(45,97,116,.92)); }
+  .v2-band--tall { min-height: 0; }
+}
+
+.v2-services { margin: 1.5rem 0 2.5rem; border-top: 1px solid rgba(242,240,236,.35); max-width: 560px; }
+.v2-services li { padding: 1.4rem 0; border-bottom: 1px solid rgba(242,240,236,.35); }
+.v2-services p { color: rgba(242,240,236,.85); margin: 0; }
+.v2-ministries { border-top: 1px solid rgba(242,240,236,.35); max-width: 520px; margin: 0; }
+.v2-ministries a { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 0; border-bottom: 1px solid rgba(242,240,236,.35); color: var(--mpc-paper); font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 300; }
+.v2-ministries a:hover { color: var(--mpc-steel-light); }
+.v2-ministries a:hover .i-chev { transform: translateX(4px); }
+
+/* ---- Split sections (image left, copy right) ---- */
+.v2-split { position: relative; background: var(--mpc-paper); padding-block: var(--section-y); }
+.v2-split__img { overflow: hidden; aspect-ratio: 4 / 3; background: var(--mpc-stone); }
+.v2-split__img img { width: 100%; height: 100%; object-fit: cover; }
+.v2-split--colour { padding-block: 0; background: var(--v2-blue-deep); --focus: var(--mpc-steel-light); }
+.v2-split__img--bleed { aspect-ratio: auto; height: 100%; min-height: 620px; }
+@media (max-width: 991.98px) { .v2-split__img--bleed { min-height: 0; aspect-ratio: 4 / 3; } }
+.v2-colour { background: var(--v2-blue-deep); color: var(--mpc-paper); display: flex; align-items: center; }
+.v2-colour__inner { padding: var(--section-y) clamp(1.25rem, 6vw, 6rem); width: 100%; }
+@media (max-width: 767.98px) { .v2-colour__inner { padding-inline: .75rem; } }
+.v2-colour__body { color: rgba(242,240,236,.88); max-width: 46ch; }
+.v2-colour__label { color: rgba(242,240,236,.8); margin: 2rem 0 .75rem; }
+.v2-jobs { border-top-color: rgba(242,240,236,.4); }
+.v2-jobs a { border-bottom-color: rgba(242,240,236,.4); }
+.v2-jobs a .i-chev { color: var(--mpc-paper); }
+.v2-jobs a:hover { color: #d8ecf3; }
+/* "Always accepting applications" appears only when no positions are posted */
+.v2-always { display: none; font-size: 1.15rem; color: var(--mpc-paper); border-top: 1px solid rgba(242,240,236,.4); border-bottom: 1px solid rgba(242,240,236,.4); padding: 1.1rem 0; margin: 0; }
+.v2-jobs:not(:has(li)) { display: none; }
+.v2-jobs:not(:has(li)) + .v2-always { display: block; }
+.v2-colour .btn-mpc, .v2-cta__primary .btn-mpc { --btn-hover: var(--mpc-paper); }
+
+/* Projects: no rule above, so it needs its own top spacing */
+.v2 .hscroll { padding-top: var(--section-y); }
+.v2 .projects .h-section { font-weight: 300; }
+
+/* News */
+.v2-news .news-list { border-top-color: var(--v2-blue); }
+
+/* Closing CTA */
+.v2-cta__primary { background: var(--v2-blue-deep); }
+.v2-cta__secondary { background: var(--mpc-ink); }
+.v2-cta__primary, .v2-cta__secondary { color: var(--mpc-paper); --focus: var(--mpc-steel-light); }
+.v2-cta__inner { padding: var(--section-y) clamp(1.25rem, 6vw, 6rem); }
+@media (max-width: 767.98px) { .v2-cta__inner { padding-inline: .75rem; } }
+.v2-cta .v2-h2 { font-size: clamp(2.2rem, 4vw, 3.6rem); }
+
+/* ---- Review options panel (concept only) ---- */
+.v2-review { position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 1040; font-size: .9rem; }
+.v2-review__toggle { min-height: 44px; padding: .55rem 1rem; background: var(--mpc-ink); color: var(--mpc-paper); border: 1px solid var(--v2-blue); font-family: var(--ff-mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+.v2-review__panel { position: absolute; left: 0; bottom: calc(100% + 8px); width: 260px; padding: 1rem 1.1rem; background: var(--mpc-ink); color: var(--mpc-paper); border: 1px solid var(--v2-blue); box-shadow: 0 18px 40px -18px rgba(13,15,17,.6); --focus: var(--mpc-steel-light); }
+.v2-review fieldset { border: 0; padding: 0; margin: 0 0 1rem; }
+.v2-review legend { font-family: var(--ff-mono); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; color: var(--mpc-paper-muted); margin-bottom: .35rem; float: none; width: auto; padding: 0; }
+.v2-review label { display: flex; align-items: center; gap: .55rem; min-height: 32px; cursor: pointer; }
+.v2-review input { accent-color: var(--mpc-steel-light); }
+.v2-review__v1 { color: var(--mpc-steel-light); text-decoration: underline; text-underline-offset: .2em; }
+
+/* Placeholders on dark and blue surfaces */
+.v2-band .ph, .v2-colour .ph, .v2-cta .ph { color: #f6d2a6; background: repeating-linear-gradient(-45deg, rgba(246,210,166,.14) 0 6px, transparent 6px 12px); outline-color: rgba(246,210,166,.6); }

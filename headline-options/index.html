@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homepage Headline Options | MPC Construction</title>
+  <meta name="description" content="Four options for the homepage headline, with our recommendation and questions for MPC.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #141619; --paper: #f2f0ec; --stone: #e3e0d9; --muted: #5a5d61;
+      --steel: #2d6174; --steel-light: #8fbccc; --blue: #4e829f; --rule: rgba(20,22,25,.14);
+      --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; }
+    a { color: var(--steel); text-underline-offset: 3px; }
+    a:focus-visible { outline: 2px solid var(--steel); outline-offset: 3px; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .annot { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+
+    header.top { border-bottom: 1px solid var(--rule); }
+    header.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px; }
+    header.top strong { font-weight: 600; letter-spacing: -.01em; }
+
+    .intro { padding: clamp(48px, 9vw, 104px) 0 clamp(40px, 6vw, 72px); }
+    .intro h1 { font-weight: 300; font-size: clamp(40px, 6.4vw, 76px); line-height: 1.02; letter-spacing: -.03em; margin: 14px 0 28px; max-width: 16ch; }
+    .intro p { max-width: 62ch; margin: 0 0 16px; font-size: 19px; color: #2b2e32; }
+    .accent { display: block; width: 96px; height: 3px; background: var(--blue); margin-top: 36px; }
+
+    section { padding: clamp(40px, 6vw, 72px) 0; border-top: 1px solid var(--rule); }
+    h2 { font-weight: 300; font-size: clamp(30px, 4vw, 46px); line-height: 1.08; letter-spacing: -.02em; margin: 10px 0 24px; }
+    .lead { max-width: 64ch; font-size: 18px; }
+
+    .issues { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 40px; margin-top: 32px; padding: 0; list-style: none; }
+    .issues li { border-top: 1px solid var(--ink); padding: 18px 0 26px; }
+    .issues h3 { font-size: 19px; font-weight: 600; margin: 0 0 6px; letter-spacing: -.01em; }
+    .issues p { margin: 0; color: var(--muted); }
+
+    .quotes { margin: 32px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+    .quotes li { border-left: 3px solid var(--blue); padding: 4px 0 4px 18px; font-size: 18px; }
+    .quotes span { display: block; font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .04em; margin-top: 2px; }
+
+    .option { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 40px; align-items: start; padding: 40px 0; border-top: 1px solid var(--rule); }
+    .option:first-of-type { border-top: 0; padding-top: 16px; }
+    @media (max-width: 860px) { .option { grid-template-columns: 1fr; gap: 24px; } }
+    .tag { display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; background: var(--steel); color: #fff; padding: 4px 8px; margin-left: 8px; vertical-align: 2px; }
+    .option h3 { font-size: 24px; font-weight: 500; letter-spacing: -.015em; margin: 6px 0 14px; line-height: 1.2; }
+    .option dl { margin: 0; }
+    .option dt { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 16px; }
+    .option dd { margin: 4px 0 0; }
+
+    /* Hero mock-ups: same treatment as the v2 homepage hero */
+    .mock { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #09161d; color: var(--paper); container-type: inline-size; }
+    .mock img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(.86) contrast(1.05); }
+    .mock::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9,22,29,.9), rgba(9,22,29,.8) 45%, rgba(9,22,29,.68)); }
+    .mock__copy { position: absolute; z-index: 1; left: 7cqi; right: 7cqi; bottom: 9cqi; }
+    .mock__h { font-weight: 300; font-size: 8.6cqi; line-height: .95; letter-spacing: -.035em; margin: 0; }
+    .mock__h--long { font-size: 6.4cqi; line-height: 1; max-width: 16ch; }
+    .mock__bar { display: block; width: 14cqi; height: .55cqi; min-height: 2px; background: var(--blue); margin: 3.2cqi 0 2.6cqi; }
+    .mock__sub { font-size: 2.15cqi; line-height: 1.45; max-width: 52ch; margin: 0 0 3cqi; color: rgba(242,240,236,.88); }
+    .mock__btns { display: flex; gap: 1.6cqi; }
+    .mock__btns span { font-size: 1.6cqi; border: 1px solid rgba(242,240,236,.8); padding: 1.1cqi 2cqi; white-space: nowrap; }
+    .mock__btns span:first-child { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+    .mock__note { position: absolute; z-index: 1; left: 7cqi; bottom: 3cqi; font-family: var(--mono); font-size: 1.35cqi; letter-spacing: .08em; text-transform: uppercase; color: rgba(242,240,236,.75); }
+    .caption { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 10px; letter-spacing: .03em; }
+
+    .rec { background: var(--steel); color: var(--paper); border-top: 0; }
+    .rec h2 { color: #fff; }
+    .rec p { max-width: 64ch; font-size: 18px; color: rgba(242,240,236,.92); }
+    .rec .annot { color: var(--steel-light); }
+    .rec a { color: #fff; }
+    .rec a:focus-visible { outline-color: var(--steel-light); }
+
+    .questions { counter-reset: q; list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 0; }
+    .questions li { border-top: 1px solid var(--rule); padding: 18px 0 18px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 8px 40px; }
+    @media (max-width: 760px) { .questions li { grid-template-columns: 1fr; } }
+    .questions strong { font-weight: 600; font-size: 18px; line-height: 1.35; }
+    .questions p { margin: 0; color: var(--muted); }
+
+    .test { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 0; padding: 0; list-style: none; }
+    .test li { border: 1px solid var(--ink); padding: 10px 16px; font-weight: 500; }
+
+    footer { border-top: 1px solid var(--rule); padding: 28px 0 48px; color: var(--muted); font-size: 15px; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <strong>MPC Construction · Website review</strong>
+      <a class="annot" href="../v2/index.html">View homepage v2</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="intro">
+      <div class="wrap">
+        <p class="annot">Homepage headline · For discussion</p>
+        <h1>Does “Moving you forward.” do enough work?</h1>
+        <p>The headline is the first thing a general contractor, owner or job seeker reads. In about five seconds, it should tell them what MPC does, where, and for whom.</p>
+        <p>Right now “Moving you forward.” is the only text in the hero. Below are four options to consider, our recommendation, and a few questions that will help us settle it together.</p>
+        <span class="accent" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <section aria-labelledby="whyTitle">
+      <div class="wrap">
+        <p class="annot">The current headline</p>
+        <h2 id="whyTitle">Why we think it needs support</h2>
+        <p class="lead">It’s a positive line with real energy, and the idea of momentum is worth keeping. On its own, though, it leaves the visitor to work out the rest.</p>
+        <ul class="issues">
+          <li><h3>Any company could say it</h3><p>A paving firm, a logistics company or a car dealer could use the same words. Nothing in the line says concrete, commercial work or New England.</p></li>
+          <li><h3>“You” isn’t clear</h3><p>The homepage speaks to two groups: general contractors and owners sending RFPs, and people looking for work. The line doesn’t clearly speak to either.</p></li>
+          <li><h3>It makes no promise</h3><p>Forward how? Faster schedules, better slabs, room to grow? A strong headline answers one question the visitor already has.</p></li>
+          <li><h3>Search engines can’t read it</h3><p>Google uses the main heading to work out what a page is about. This one never mentions concrete, commercial work or New Hampshire.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="materialTitle">
+      <div class="wrap">
+        <p class="annot">Where the options come from</p>
+        <h2 id="materialTitle">Your own words already say it better</h2>
+        <p class="lead">Every option below is built from wording already on mpccon.com. We haven’t added any new claims.</p>
+        <ul class="quotes">
+          <li>“Concrete — it’s all we do, and we do it well.”<span>mpccon.com</span></li>
+          <li>Founded on a simple focus: be the concrete subcontractor general contractors want on their job.<span>mpccon.com · About us</span></li>
+          <li>“They did everything on time to help make this one of the fastest O’Reilly’s projects that we have completed.”<span>Lee Handley, O’Reilly Auto Parts</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="optionsTitle">
+      <div class="wrap">
+        <p class="annot">Four options</p>
+        <h2 id="optionsTitle">How each one would look</h2>
+        <p class="lead">Each mock-up uses the same photo, type and buttons as the v2 homepage, so the only difference is the words.</p>
+
+        <article class="option" aria-labelledby="optA">
+          <div>
+            <div class="mock" aria-hidden="true">
+              <img src="../assets/img/hero/reel-poster-1920.jpg" srcset="../assets/img/hero/reel-poster-768.jpg 768w, ../assets/img/hero/reel-poster-1920.jpg 1920w" sizes="(max-width: 860px) 100vw, 640px" alt="" loading="lazy">
+              <div class="mock__copy">
+                <p class="mock__h">Moving you<br>forward.</p>
+                <span class="mock__bar"></span>
+                <p class="mock__sub">Commercial slabs, structural decks and site concrete for general contractors across New Hampshire, Massachusetts and southern Maine.</p>
+                <div class="mock__btns"><span>Submit an RFP ›</span><span>Careers at MPC ›</span></div>
+              </div>
+            </div>
+            <p class="caption">Option A · current headline with a supporting line</p>
+          </div>
+          <div>
+            <p class="annot">Option A</p>
+            <h3 id="optA">Keep the line and add one sentence below it</h3>
+            <dl>
+              <dt>Headline</dt><dd>Moving you forward.</dd>
+              <dt>Supporting line</dt><dd>Commercial slabs, structural decks and site concrete for general contractors across New Hampshire, Massachusetts and southern Maine.</dd>
+              <dt>Trade-off</dt><dd>The smallest change, and you keep the line you chose. The sentence underneath does the explaining, and it brings back the description we removed after our call.</dd>
+            </dl>
+          </div>
+        </article>
+
+        <article class="option" aria-labelledby="optB">
+          <div>
+            <div class="mock" aria-hidden="true">
+              <img src="../assets/img/hero/reel-poster-1920.jpg" srcset="../assets/img/hero/reel-poster-768.jpg 768w, ../assets/img/hero/reel-poster-1920.jpg 1920w" sizes="(max-width: 860px) 100vw, 640px" alt="" loading="lazy">
+              <div class="mock__copy">
+                <p class="mock__h mock__h--long">Concrete that keeps your project moving.</p>
+                <span class="mock__bar"></span>
+                <p class="mock__sub">Commercial slabs, structural decks and site concrete for general contractors across New Hampshire, Massachusetts and southern Maine.</p>
+                <div class="mock__btns"><span>Submit an RFP ›</span><span>Careers at MPC ›</span></div>
+              </div>
+            </div>
+            <p class="caption">Option B · our recommendation</p>
+          </div>
+          <div>
+            <p class="annot">Option B <span class="tag">Recommended</span></p>
+            <h3 id="optB">Make “moving” specific</h3>
+            <dl>
+              <dt>Headline</dt><dd>Concrete that keeps your project moving.</dd>
+              <dt>Supporting line</dt><dd>Same as Option A. This one also works without it.</dd>
+              <dt>Trade-off</dt><dd>Keeps your idea of momentum, but says what MPC does and who benefits. The O’Reilly “on time” quote backs it up.</dd>
+            </dl>
+          </div>
+        </article>
+
+        <article class="option" aria-labelledby="optC">
+          <div>
+            <div class="mock" aria-hidden="true">
+              <img src="../assets/img/hero/reel-poster-1920.jpg" srcset="../assets/img/hero/reel-poster-768.jpg 768w, ../assets/img/hero/reel-poster-1920.jpg 1920w" sizes="(max-width: 860px) 100vw, 640px" alt="" loading="lazy">
+              <div class="mock__copy">
+                <p class="mock__h">Concrete.<br>It’s all we do.</p>
+                <span class="mock__bar"></span>
+                <p class="mock__sub">Commercial slabs, structural decks and site concrete for general contractors across New Hampshire, Massachusetts and southern Maine.</p>
+                <div class="mock__btns"><span>Submit an RFP ›</span><span>Careers at MPC ›</span></div>
+              </div>
+            </div>
+            <p class="caption">Option C · the specialist</p>
+          </div>
+          <div>
+            <p class="annot">Option C</p>
+            <h3 id="optC">Lead with the specialism</h3>
+            <dl>
+              <dt>Headline</dt><dd>Concrete. It’s all we do.</dd>
+              <dt>Supporting line</dt><dd>Same as Option A.</dd>
+              <dt>Trade-off</dt><dd>The most distinctive of the four, taken straight from your current site. It’s also the headline from the first homepage design, which you moved away from in our last call.</dd>
+            </dl>
+          </div>
+        </article>
+
+        <article class="option" aria-labelledby="optD">
+          <div>
+            <div class="mock" aria-hidden="true">
+              <img src="../assets/img/hero/reel-poster-1920.jpg" srcset="../assets/img/hero/reel-poster-768.jpg 768w, ../assets/img/hero/reel-poster-1920.jpg 1920w" sizes="(max-width: 860px) 100vw, 640px" alt="" loading="lazy">
+              <div class="mock__copy">
+                <p class="mock__h mock__h--long">The concrete sub general contractors want on their job.</p>
+                <span class="mock__bar"></span>
+                <p class="mock__sub">Founded in 2008 in Jaffrey, New Hampshire.</p>
+                <div class="mock__btns"><span>Submit an RFP ›</span><span>Careers at MPC ›</span></div>
+              </div>
+            </div>
+            <p class="caption">Option D · speaking straight to general contractors</p>
+          </div>
+          <div>
+            <p class="annot">Option D</p>
+            <h3 id="optD">Speak straight to general contractors</h3>
+            <dl>
+              <dt>Headline</dt><dd>The concrete sub general contractors want on their job.</dd>
+              <dt>Supporting line</dt><dd>Founded in 2008 in Jaffrey, New Hampshire.</dd>
+              <dt>Trade-off</dt><dd>Comes straight from MPC’s founding focus and leaves no doubt who it’s for. It’s longer, so it hits less hard as a big display line.</dd>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="rec" aria-labelledby="recTitle">
+      <div class="wrap">
+        <p class="annot">Our recommendation</p>
+        <h2 id="recTitle">Option B, and keep “Moving you forward.” elsewhere</h2>
+        <p>“Concrete that keeps your project moving.” keeps the spirit of your line and answers the visitor’s first question. Adding the supporting line makes the hero complete for general contractors and for search engines.</p>
+        <p>If “Moving you forward.” matters to you as a brand line, it works well as a closing statement: at the end of the homepage, next to the RFP button, or in the footer. By then the visitor knows who you are.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="qTitle">
+      <div class="wrap">
+        <p class="annot">Help us decide</p>
+        <h2 id="qTitle">Four questions for MPC</h2>
+        <ol class="questions">
+          <li><strong>Who do you most need to reach on the homepage?</strong><p>General contractors sending RFPs, or people applying for jobs? The headline should speak to the main group. The second button can serve the other.</p></li>
+          <li><strong>What do general contractors actually pick you for?</strong><p>Schedule, slab quality, being easy to work with, something else? Whatever they say is the most honest version of “forward”.</p></li>
+          <li><strong>What does “Moving you forward” mean to you?</strong><p>If it’s about growth or how you treat your people, it may land harder on Who We Are or Careers than in the hero.</p></li>
+          <li><strong>Can we add one short line under the headline?</strong><p>We took it out after our call. If you’d still rather not have it, the headline has to say everything by itself, which points to Option B, C or D.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section aria-labelledby="testTitle">
+      <div class="wrap">
+        <p class="annot">A quick way to check</p>
+        <h2 id="testTitle">The five-second test</h2>
+        <p class="lead">Show the homepage to someone who doesn’t know MPC for five seconds, then ask them three questions. A strong hero lets them answer all three.</p>
+        <ul class="test"><li>What does this company do?</li><li>Where do they work?</li><li>Who are they for?</li></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Prepared for MPC Construction LLC · Homepage concept review</span>
+      <a href="../v2/index.html">Back to homepage v2</a>
+    </div>
+  </footer>
+</body>
+</html>
